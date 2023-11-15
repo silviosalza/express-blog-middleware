@@ -11,7 +11,7 @@ const path = require("path")
  */
 
 function index(req,res){
-
+    // throw new Error("errore di prova con server UP")
         res.format({
             text: () => {
                 res.type("text").send("Benvenuto nel mio blog sull'arte nipponica!")
