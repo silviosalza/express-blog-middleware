@@ -12,13 +12,12 @@ dotenv.config();
 
 //creo istanza express
 const app = express();
-
 //configuro file statici con nome cartella
 app.use(express.static("public"));
-
 //registro il tipo di bodyparser
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+
 
 //middleware delle rotte
 app.use(routesLoggerMiddleware)
