@@ -19,18 +19,19 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 
-//middleware delle rotte
+//middleware globale per lettura delle rotte
 app.use(routesLoggerMiddleware)
 
 app.get("/" , homeController.index);
 //uso rotte importate dal file postRouter
 app.use("/posts" , postRouter)
 app.use("/admin" , adminRouter)
+app.use("/admin" , adminRouter)
 
-//gestione errori sempre all'ultimo
-app.use(routeNotFoundMiddleware)
+//gestione errori sempre alla fine
 app.use(errorFormatterMiddleware)
-
+//non avendo funzione next(), la gestione delle rotte non trovate va all'ultimo
+app.use(routeNotFoundMiddleware)
 
 app.listen(process.env.PORT || 3000 , () =>{
     console.log(`http://localhost:${process.env.PORT}`)
