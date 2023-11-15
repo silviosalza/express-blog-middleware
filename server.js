@@ -27,7 +27,6 @@ app.get("/" , homeController.index);
 //uso rotte importate dal file postRouter
 app.use("/posts" , postRouter)
 app.use("/admin" , adminRouter)
-app.use("/admin" , adminRouter)
 app.use("/", authRouter)
 
 //!gestione errori sempre alla fine
