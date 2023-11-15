@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 
-//middleware globale per lettura delle rotte
+//!middleware globale per lettura delle rotte
 app.use(routesLoggerMiddleware)
 
 app.get("/" , homeController.index);
@@ -30,9 +30,9 @@ app.use("/admin" , adminRouter)
 app.use("/admin" , adminRouter)
 app.use("/", authRouter)
 
-//gestione errori sempre alla fine
+//!gestione errori sempre alla fine
 app.use(errorFormatterMiddleware)
-//non avendo funzione next(), la gestione delle rotte non trovate va all'ultimo
+//!non avendo funzione next(), la gestione delle rotte non trovate va all'ultimo
 app.use(routeNotFoundMiddleware)
 
 app.listen(process.env.PORT || 3000 , () =>{
