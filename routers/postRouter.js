@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer")
-const postController = require("../controllers/postController")
+const postController = require("../controllers/postController");
+const authUserMiddleware = require("../middlewares/authUser");
 
 // funzione index
 
@@ -11,7 +12,7 @@ router.get("/" , postController.index)
 router.get("/create" , postController.create)
 
 //funzione store
-router.post("/", multer().none() , postController.store)
+router.post("/", authUserMiddleware , postController.store)
 
 //funzione show
 router.get("/:slug", postController.show)
