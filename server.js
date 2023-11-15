@@ -5,7 +5,8 @@ const postRouter = require("./routers/postRouter");
 const errorFormatterMiddleware = require('./middlewares/errorFormatter');
 const routesLoggerMiddleware = require('./middlewares/routesLogger');
 const routeNotFoundMiddleware = require('./middlewares/routeNotFound');
-const adminRouter = require("./routers/adminRouter")
+const adminRouter = require("./routers/adminRouter");
+const authRouter = require("./routers/authRouter")
 
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.get("/" , homeController.index);
 app.use("/posts" , postRouter)
 app.use("/admin" , adminRouter)
 app.use("/admin" , adminRouter)
+app.use("/", authRouter)
 
 //gestione errori sempre alla fine
 app.use(errorFormatterMiddleware)
